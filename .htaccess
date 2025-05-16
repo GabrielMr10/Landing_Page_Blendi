@@ -1,0 +1,22 @@
+ RewriteEngine on
+
+# Certifique-se de que a reescrita funcione apenas para URLs sem extensões
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Remove a extensão .html da URL
+RewriteRule ^([^.]+)$ $1.html [L]
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Permitir todos os métodos HTTP
+    <Limit GET POST PUT DELETE>
+        Allow from all
+    </Limit>
+    
+    # Permitir envio de emails
+    php_value sendmail_path "/usr/sbin/sendmail -t -i"
+    php_value SMTP "localhost"
+    php_value smtp_port "25"
+</IfModule>
