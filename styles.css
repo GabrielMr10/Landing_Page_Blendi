@@ -27,19 +27,27 @@ body {
 
 @media (max-width: 768px) {
     .overlay {
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: rgba(0, 0, 0, 0.45);
+    }
+    
+    .container {
+        padding: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
     .overlay {
-        background-color: rgba(0, 0, 0, 0.65);
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    .container {
+        padding: 1rem;
     }
 }
 
 .container {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
@@ -80,6 +88,12 @@ main {
     margin-top: 5rem;
 }
 
+.logo-blendi {
+    max-width: 80%;
+    max-height: 100px;
+    margin-top: 8rem;
+}
+
 h1 {
     font-size: 3.2rem;
     line-height: 1.2;
@@ -92,26 +106,83 @@ h1 {
     margin-top: -20px;
 }
 
-
-
 .demo-btn:hover {
     background-color: #b08f68;
 }
 
 @media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .logo {
+        max-width: 150px;
+        margin: 2rem 0;
+    }
+
+    .logo-blendi {
+        max-width: 60%;
+        margin-top: 2rem;
+    }
+
     h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        margin-bottom: 2rem;
     }
 
     .span1-h1 {
-        font-size: 2rem;
+        font-size: 1.6rem;
+        margin-top: 0;
     }
 
+    .cta-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    .logo {
+        max-width: 120px;
+        margin: 1rem 0;
+    }
+
+    .logo-blendi {
+        max-width: 70%;
+        margin-top: 1rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .span1-h1 {
+        font-size: 1.4rem;
+    }
+
+    .cta-button {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+        width: 90%;
+    }
 }
 
 .white-section {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     background-color: #ffffff;
     padding: 5rem 0;
     text-align: center;
@@ -267,11 +338,14 @@ h1 {
 .for-who {
     background: #ffffff;
     padding: 5rem 2rem;
+    position: relative;
+    z-index: 2;
 }
 
 .for-who-content {
     max-width: 1200px;
     margin: 0 auto;
+    z-index: 3;
 }
 
 .for-who h2 {
@@ -296,16 +370,16 @@ h1 {
     gap: 1.5rem;
 }
 
-
 .benefits-list {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    text-align: left;
 }
 
 .benefits-list h2,
 .highlight-h2 {
-    font-size: 2.6rem !important;
+    font-size: 2.2rem !important;
     font-weight: 900;
     line-height: 1;
     text-transform: none;
@@ -315,17 +389,11 @@ h1 {
     margin-bottom: 1rem;
 }
 
-/* Removendo qualquer estilo que possa estar afetando */
-.highlight {
-    text-transform: none;
-    font-variant: normal;
-    letter-spacing: normal;
-}
-
 .benefits-list-item {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
+    text-align: left;
 }
 
 .check-icon {
@@ -339,10 +407,7 @@ h1 {
     font-size: 1.15rem;
     line-height: 1.4;
     margin: 0;
-}
-
-.cta-button:hover {
-    transform: scale(1.02);
+    text-align: left;
 }
 
 .image-container {
@@ -350,6 +415,9 @@ h1 {
     border-radius: 1rem;
     overflow: hidden;
     height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .image-container img {
@@ -361,43 +429,106 @@ h1 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .benefits-list h2 {
-        font-size: 2.5rem;
+@media (max-width: 992px) {
+    .for-who {
+        padding: 4rem 1.5rem;
     }
 
-    .benefits-list-item p {
-        font-size: 1.1rem;
+    .benefits-wrapper {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .benefits-list h2,
+    .highlight-h2 {
+        font-size: 2rem !important;
+        text-align: center;
+    }
+
+    .benefits-list-item {
+        justify-content: flex-start;
+    }
+
+    .image-container {
+        height: 400px;
+        margin: 2rem auto;
+        max-width: 80%;
     }
 }
 
-@media (max-width: 480px) {
-    .benefits-list h2 {
-        font-size: 2rem;
+@media (max-width: 768px) {
+    .for-who {
+        padding: 3rem 1rem;
+    }
+
+    .for-who h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .benefits-list h2,
+    .highlight-h2 {
+        font-size: 1.8rem !important;
+        text-align: center;
+    }
+
+    .benefits-list-item {
+        justify-content: flex-start;
     }
 
     .benefits-list-item p {
         font-size: 1rem;
     }
 
-    .benefit {
-        margin-left: 0;
+    .image-container {
+        height: 300px;
+        max-width: 90%;
     }
 
-    .hero-content h1 {
-        font-size: 1.8rem;
-        margin-top: -3rem !important;
-    }
-
-    #modificarcta1 {
-        height: 60px !important;
+    .cta-button {
         width: 100%;
-        z-index: 4;
-        margin-bottom: 2rem;
+        margin-top: 1rem;
     }
 }
 
+@media (max-width: 480px) {
+    .for-who {
+        padding: 2rem 0.5rem;
+    }
+
+    .for-who h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .benefits-list h2,
+    .highlight-h2 {
+        font-size: 1.6rem !important;
+        text-align: center;
+    }
+
+    .benefits-list-item {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+        gap: 1rem;
+    }
+
+    .check-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .benefits-list-item p {
+        font-size: 0.95rem;
+        text-align: left;
+    }
+
+    .image-container {
+        height: 250px;
+        max-width: 95%;
+    }
+}
 
 .left-content h2 {
     font-size: 2.5rem;
@@ -660,7 +791,7 @@ h1 {
     padding: 4rem 2rem;
     background-color: #fff;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .photos-container {
@@ -950,16 +1081,13 @@ h1 {
 
 .form-section {
     position: relative;
-    background:
-        linear-gradient(90deg, rgba(198, 212, 1, 0.772), rgba(11, 128, 119, 0.926)),
+    background: linear-gradient(90deg, rgba(198, 212, 1, 0.772), rgba(11, 128, 119, 0.926)),
         url('img/imgpiscina.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     padding: 4rem 0;
     text-align: center;
-    padding: 4rem 0;
-    position: relative;
     z-index: 2;
 }
 
